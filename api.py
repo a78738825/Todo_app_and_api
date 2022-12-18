@@ -2,7 +2,6 @@ from typing import Optional
 from fastapi import Body, FastAPI
 from pydantic import BaseModel
 from pymongo import MongoClient
-from flask import request
 
 # from flask_pymongo import PyMongo
 # from flask import Flask
@@ -23,11 +22,14 @@ collec = db["api_collection"]
 def root():
     return {"msg": "root index with app.get :)"}
 
-@app.get('/get_method')
-def get_request(all_data: Post):
-    return {"message": all_data}
+@app.get('/get_documents')
+def get_request():
+    cur_f = collec.find({}, {"_id": 0})
+    for docs in cur_f:
+        pass
+    return {"message" : docs}
 
-@app.post('/post')
+@app.post('/post_documents')
 def post_request(recieved_data: Post):
     print("\n Pydantic BaseModel :")
     print(recieved_data)
@@ -38,4 +40,4 @@ def post_request(recieved_data: Post):
         collec.insert_one(data_to_insert)
     except Exception as e:
         print("Error: ", str(e))
-    return {"data": recieved_data}
+    return {"data_inserted": recieved_data}
