@@ -1,20 +1,9 @@
-# from pymongo import MongoClient
 from flask import Flask, render_template, request
 from flask_pymongo import PyMongo
 import requests
 import json
 
 app = Flask(__name__)
-# app.config['MONGO_URI'] = "mongodb://localhost:27017/todo_api"
-# mongo = PyMongo(app)
-
-obj = {
-    "title": "test title",
-    "description": "test desc",
-    "rating": 9
-}
-json_obj = json.dumps(obj, indent=4)
-
 
 @app.route('/')
 def index():
