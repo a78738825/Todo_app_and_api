@@ -27,10 +27,9 @@ def post_to_database():
     if request.method == "POST":
         title = request.form['title']
         description = request.form['desc']
-
         form_data = {"title": title, "description": description}
         form_json = json.dumps(form_data, indent=4)
-        requests.post("http://127.0.0.1:8000/post", data=form_json)
+        requests.post("http://127.0.0.1:8000/post_documents", data=form_json)
         meth_response = "Data sent to API!!"
     elif request.method == "GET":
         meth_response = "Wrong Method used !!"
