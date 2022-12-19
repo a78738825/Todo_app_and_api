@@ -12,8 +12,8 @@ REQUIREMENTS FOR TOOL:
 HOW TO USE:
 --------------------------------------------------------------------
 - Install requirements:
-    "Install dependencies using-"
-        pip install -r requirements.txt
+    _Install dependencies using-_
+        ```pip install -r requirements.txt```
 
 - Start the API server:
     "After installing dependencies start the server using command -"
